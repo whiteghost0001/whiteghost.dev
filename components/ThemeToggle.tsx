@@ -1,15 +1,19 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const emptySubscribe = () => () => {};
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
-  // Avoid hydration mismatch
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return <div className="w-7 h-7" />;
+  if (!mounted) return <div className="w-7 h-7" aria-hidden="true" />;
 
   const isDark = resolvedTheme === "dark";
 
@@ -34,3 +38,4 @@ export default function ThemeToggle() {
     </button>
   );
 }
+

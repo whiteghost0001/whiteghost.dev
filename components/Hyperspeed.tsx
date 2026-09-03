@@ -366,7 +366,7 @@ class CarLights {
     const aMetrics: number[] = [];
     const aColor: number[] = [];
 
-    let colors: THREE.Color | THREE.Color[] = Array.isArray(this.colors)
+    const colors: THREE.Color | THREE.Color[] = Array.isArray(this.colors)
       ? this.colors.map((c) => new THREE.Color(c))
       : new THREE.Color(this.colors);
 
@@ -443,7 +443,7 @@ class LightsSticks {
     const aColor: number[] = [];
     const aMetrics: number[] = [];
 
-    let colors: THREE.Color | THREE.Color[] = Array.isArray(options.colors.sticks)
+    const colors: THREE.Color | THREE.Color[] = Array.isArray(options.colors.sticks)
       ? (options.colors.sticks as unknown as number[]).map((c) => new THREE.Color(c))
       : new THREE.Color(options.colors.sticks);
 
