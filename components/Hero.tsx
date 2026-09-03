@@ -72,8 +72,8 @@ export default function Hero({ onOpenOS }: HeroProps) {
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         {/* Animated System Status & Location Bar */}
-        <motion.div {...fade(0.05)} className="mb-8 flex flex-wrap items-center gap-3">
-          <div className="relative flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-bold bg-[var(--surface)] text-emerald-600 dark:text-emerald-300 border border-[var(--border)] shadow-md overflow-hidden">
+        <motion.div {...fade(0.05)} className="mb-6 flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="relative flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] sm:text-xs font-bold bg-[var(--surface)] text-emerald-600 dark:text-emerald-300 border border-[var(--border)] shadow-md overflow-hidden">
             {/* Scanning Line Sweep */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent animate-[shimmer_2s_infinite]" />
             <span className="relative flex h-2 w-2">
@@ -85,7 +85,7 @@ export default function Hero({ onOpenOS }: HeroProps) {
           </div>
 
           <div
-            className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium backdrop-blur-md shadow-sm"
+            className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] sm:text-xs font-medium backdrop-blur-md shadow-sm"
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
@@ -98,23 +98,23 @@ export default function Hero({ onOpenOS }: HeroProps) {
         </motion.div>
 
         {/* Main Hero Grid Layout */}
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_360px] lg:items-start">
+        <div className="grid gap-8 lg:gap-10 lg:grid-cols-[1.1fr_360px] lg:items-start">
           {/* Left Column: Headlines, Bio, Module Booting & CTAs */}
           <div>
             <motion.h1
               {...fade(0.15)}
-              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-sans leading-[1.08] mb-3 text-[var(--fg)]"
+              className="text-3xl font-bold tracking-tight xs:text-4xl sm:text-5xl md:text-6xl font-sans leading-[1.08] mb-3 text-[var(--fg)]"
             >
               KHALID NASIRU<span style={{ color: "var(--accent)" }}>.</span>
             </motion.h1>
 
-            <motion.div {...fade(0.2)} className="text-[var(--accent)] font-bold text-base sm:text-lg mb-6 flex items-center gap-2">
-              <Cpu size={18} className="text-[var(--accent)] animate-pulse" />
+            <motion.div {...fade(0.2)} className="text-[var(--accent)] font-bold text-sm sm:text-lg mb-5 flex items-center gap-2">
+              <Cpu size={18} className="text-[var(--accent)] animate-pulse shrink-0" />
               <span>Full-Stack Developer &amp; Blockchain Engineer</span>
             </motion.div>
 
             {/* Mobile-Only Photo Card */}
-            <motion.div {...fade(0.22)} className="mb-6 lg:hidden max-w-[320px] mx-auto sm:mx-0">
+            <motion.div {...fade(0.22)} className="mb-6 lg:hidden max-w-[260px] xs:max-w-[280px] mx-auto sm:mx-0">
               <div className="relative group">
                 <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500/30 via-emerald-500/20 to-purple-500/30 blur-md opacity-60 pointer-events-none" />
                 <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] shadow-xl">
@@ -130,7 +130,7 @@ export default function Hero({ onOpenOS }: HeroProps) {
                       src="/images/khalid-nasiru.jpg"
                       alt="Khalid Nasiru — Full-Stack Developer and Blockchain Engineer"
                       fill
-                      sizes="(max-width: 768px) 320px, 350px"
+                      sizes="(max-width: 768px) 280px, 350px"
                       priority
                       unoptimized
                       className="object-cover object-center"
@@ -146,13 +146,13 @@ export default function Hero({ onOpenOS }: HeroProps) {
 
             <motion.p
               {...fade(0.25)}
-              className="text-base sm:text-lg font-sans font-normal leading-relaxed mb-6 max-w-xl text-[var(--fg-muted)]"
+              className="text-sm sm:text-lg font-sans font-normal leading-relaxed mb-6 max-w-xl text-[var(--fg-muted)]"
             >
               Building web applications, blockchain products, smart-contract systems, and open-source software.
             </motion.p>
 
             {/* Loaded Technology Modules Sequential Reveal */}
-            <motion.div {...fade(0.3)} className="mb-8 space-y-2">
+            <motion.div {...fade(0.3)} className="mb-6 sm:mb-8 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-mono text-[var(--fg-subtle)] uppercase tracking-widest block font-bold">
                   {isSystemReady ? "LOADED_MODULES :: SYSTEM READY" : "LOADING_MODULES..."}
@@ -180,11 +180,11 @@ export default function Hero({ onOpenOS }: HeroProps) {
             </motion.div>
 
             {/* Action CTAs */}
-            <motion.div {...fade(0.35)} className="flex flex-wrap items-center gap-3 mb-8">
+            <motion.div {...fade(0.35)} className="grid grid-cols-1 xs:grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 mb-8 w-full">
               {onOpenOS && (
                 <button
                   onClick={onOpenOS}
-                  className="group relative inline-flex items-center gap-2 rounded-lg px-6 py-3.5 text-xs font-bold transition-all duration-200 shadow-lg bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 hover:opacity-95 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-cyan-400 active:scale-95"
+                  className="xs:col-span-2 group relative inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3.5 text-xs font-bold transition-all duration-200 shadow-lg bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 hover:opacity-95 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-cyan-400 active:scale-95"
                 >
                   <Monitor size={16} />
                   <span>INITIALIZE PORTFOLIO OS</span>
@@ -193,7 +193,7 @@ export default function Hero({ onOpenOS }: HeroProps) {
 
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 rounded-lg px-5 py-3.5 text-xs font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95 hover:bg-[var(--surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] shadow-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95 hover:bg-[var(--surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] shadow-sm"
                 style={{
                   backgroundColor: "var(--surface)",
                   color: "var(--fg)",
@@ -208,7 +208,7 @@ export default function Hero({ onOpenOS }: HeroProps) {
                 href="/cv.pdf"
                 download="Whiteghost-CV.pdf"
                 aria-label="Download CV"
-                className="inline-flex items-center gap-2 rounded-lg px-5 py-3.5 text-xs font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] shadow-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] shadow-sm"
                 style={{
                   backgroundColor: "var(--accent-glow)",
                   color: "var(--accent)",
@@ -224,7 +224,7 @@ export default function Hero({ onOpenOS }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
-                className="inline-flex items-center gap-2 rounded-lg px-4 py-3.5 text-xs font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95 hover:bg-[var(--surface-hover)] shadow-sm"
+                className="xs:col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95 hover:bg-[var(--surface-hover)] shadow-sm"
                 style={{
                   backgroundColor: "var(--surface)",
                   color: "var(--fg)",

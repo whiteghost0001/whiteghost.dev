@@ -77,7 +77,7 @@ export default function AboutSystem() {
             />
           </div>
 
-          <div className="grid gap-4 grid-cols-2 md:grid-cols-4 flex-1">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 flex-1 w-full">
             <div>
               <span className="text-[10px] text-[var(--fg-subtle)] uppercase tracking-widest block font-semibold mb-1">
                 OPERATOR
