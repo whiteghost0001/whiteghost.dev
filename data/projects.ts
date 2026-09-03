@@ -1,0 +1,245 @@
+export interface Project {
+  id: string;
+  name: string;
+  category: string;
+  shortDescription: string;
+  fullDescription: string;
+  problem: string;
+  solution: string;
+  features: string[];
+  techStack: string[];
+  architectureHighlights: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  status: "Live Production" | "Deployed / Public" | "Open Source / Active";
+  isPinned: boolean;
+  isLiveProduct: boolean;
+  role?: string;
+  stars?: number;
+  forks?: number;
+  language: string;
+}
+
+export const PROJECTS: Project[] = [
+  {
+    id: "luminarail",
+    name: "LuminaRail",
+    category: "Stellar / FinTech / Web3 Infrastructure",
+    shortDescription: "Stablecoin settlement infrastructure connecting local fiat rails with USDC on Stellar.",
+    fullDescription: "LuminaRail is a decentralized settlement protocol designed to link African local fiat payment gateways directly to USDC liquidity pools on the Stellar network using Soroban smart contracts.",
+    problem: "Cross-border financial transactions between local fiat currencies in developing markets suffer from high banking fees, 3-5 day settlement delays, and currency slippage.",
+    solution: "LuminaRail leverages Soroban smart contracts on Stellar to automate fiat-to-USDC liquidity routing, reducing cross-border transfer times to under 5 seconds with negligible gas costs.",
+    features: [
+      "Stellar Soroban smart contract liquidity routing",
+      "Instant USDC trustline creation and automated asset swapping",
+      "Non-custodial wallet connectivity via Stellar SDK",
+      "High-throughput transaction monitoring dashboard",
+      "Responsive React/Next.js settlement interface",
+    ],
+    techStack: ["Soroban", "Stellar SDK", "Rust", "Next.js", "TypeScript", "Tailwind CSS"],
+    architectureHighlights: [
+      "Soroban smart contracts compiled to WebAssembly for execution speed",
+      "Direct ledger streaming via Horizon API server subscription",
+      "Deterministic address derivation for instant settlement accounts",
+    ],
+    githubUrl: "https://github.com/whiteghost0001/luminarail",
+    liveUrl: "https://luminarail.vercel.app/",
+    status: "Live Production",
+    isPinned: true,
+    isLiveProduct: false,
+    language: "TypeScript",
+  },
+  {
+    id: "payproof",
+    name: "PayProof",
+    category: "Stellar / Payments & Receipts",
+    shortDescription: "Stellar payment verification and cryptographic receipt generation platform.",
+    fullDescription: "PayProof provides verifiable, immutable cryptographic proofs for transactions executed on the Stellar network, allowing merchants and users to instantly verify payment completion without third-party intermediaries.",
+    problem: "E-commerce merchants accepting crypto struggle with chargeback frauds, delayed confirmation indexing, and lack of human-readable accounting receipts.",
+    solution: "PayProof watches the Stellar ledger in real time, generates zero-knowledge receipt hashes signed by the transacting parties, and provides a shareable verification URL.",
+    features: [
+      "Real-time Stellar ledger payment tracking",
+      "Cryptographic payment receipt generation",
+      "QR code instant verification URLs",
+      "API webhook triggers for merchant checkout systems",
+      "Exportable transaction history and accounting logs",
+    ],
+    techStack: ["Stellar SDK", "Soroban", "React", "TypeScript", "Tailwind CSS"],
+    architectureHighlights: [
+      "Immutable receipt hashing bound to transaction ledger sequences",
+      "Lightweight client-side verification engine with zero node dependency",
+    ],
+    githubUrl: "https://github.com/whiteghost0001/payproof",
+    liveUrl: "https://luminarail.vercel.app/",
+    status: "Deployed / Public",
+    isPinned: true,
+    isLiveProduct: false,
+    language: "TypeScript",
+  },
+  {
+    id: "ndifi",
+    name: "NdiFi",
+    category: "DeFi / Ethereum Vaults",
+    shortDescription: "Non-custodial yield distribution vault engineered in Solidity with automated reward distribution.",
+    fullDescription: "NdiFi is a decentralized financial protocol built on EVM architecture that enables users to stake digital assets into automated yield vaults with permissionless reward distribution.",
+    problem: "Traditional staking protocols often rely on centralized admin keys for reward distribution, exposing funds to rugpull risks and manual execution delays.",
+    solution: "NdiFi implements trustless, immutable Solidity vaults where reward distribution rates are mathematically dictated on-chain with full Foundry test coverage.",
+    features: [
+      "Non-custodial ERC-20 staking vaults",
+      "Automated proportional yield distribution algorithm",
+      "Full Foundry unit testing and invariant fuzzing suite",
+      "Wagmi/Viem client-side state synchronization",
+      "RainbowKit wallet connection interface",
+    ],
+    techStack: ["Solidity", "Foundry", "React", "Wagmi", "Viem", "TypeScript"],
+    architectureHighlights: [
+      "Reentrancy-guarded smart contracts tested against reentrancy attacks",
+      "Optimized gas consumption using packed storage structs",
+    ],
+    githubUrl: "https://github.com/whiteghost0001/ndifi",
+    status: "Open Source / Active",
+    isPinned: true,
+    isLiveProduct: false,
+    language: "Solidity",
+  },
+  {
+    id: "paygo",
+    name: "PayGo",
+    category: "Web3 Billing / Payments on Base",
+    shortDescription: "Smart contract billing protocol replacing trust-based agreements with milestone escrow on Base L2.",
+    fullDescription: "PayGo is a Web3 payment infrastructure deployed on Base L2 that empowers freelancers and businesses to execute milestone-based escrow contracts and recurring subscription billing.",
+    problem: "Freelance service providers and clients lose funds due to non-payment or unfulfilled deliverables in trust-based digital service agreements.",
+    solution: "PayGo locks funds into a transparent smart contract escrow that releases payment automatically when pre-agreed milestone cryptographic proofs are submitted.",
+    features: [
+      "Milestone-based automated payment escrow",
+      "Recurring Web3 subscription agreements on Base",
+      "Dispute resolution framework with multi-sig safety keys",
+      "Low transaction fees powered by Base L2 scalability",
+      "Interactive merchant payment setup portal",
+    ],
+    techStack: ["Solidity", "Base L2", "Next.js", "RainbowKit", "TypeScript", "Tailwind CSS"],
+    architectureHighlights: [
+      "Optimized for Base L2 low-latency block generation",
+      "EIP-712 typed data signatures for gasless milestone approvals",
+    ],
+    githubUrl: "https://github.com/whiteghost0001/paygo",
+    status: "Deployed / Public",
+    isPinned: true,
+    isLiveProduct: false,
+    language: "Solidity",
+  },
+  {
+    id: "basevia",
+    name: "Basevia",
+    category: "Payments on Base L2",
+    shortDescription: "Remittance application routing cross-border payments through Base L2 for minimal transaction fees.",
+    fullDescription: "Basevia is a fast remittance application built on Base L2 to facilitate low-fee digital payments between global accounts and local liquidity providers.",
+    problem: "Traditional cross-border money transfers incur 7-10% transaction fees and take days to process.",
+    solution: "Basevia routes transfers over Base L2 using stablecoin smart contracts, reducing fees to less than 1% and processing time to seconds.",
+    features: [
+      "Sub-second L2 finality transfers",
+      "Minimal gas fee optimization",
+      "Simple user-facing Web3 wallet login",
+      "Automated currency conversion display",
+    ],
+    techStack: ["Base L2", "Solidity", "Next.js", "Tailwind CSS", "Viem"],
+    architectureHighlights: ["Direct L2 smart contract execution", "Lightweight frontend bundle with optimized asset loading"],
+    githubUrl: "https://github.com/whiteghost0001/basevia",
+    status: "Deployed / Public",
+    isPinned: false,
+    isLiveProduct: false,
+    language: "TypeScript",
+  },
+  {
+    id: "stellarpay",
+    name: "StellarPay",
+    category: "Stellar / Soroban Multi-Sig",
+    shortDescription: "Programmable payment infrastructure built on Soroban with multi-sig treasury controls.",
+    fullDescription: "StellarPay is a programmable treasury management and payment platform utilizing Soroban Rust smart contracts on Stellar for secure organizational payouts.",
+    problem: "DAO treasuries and remote teams lack simple multi-signature payment controls on high-speed low-cost networks.",
+    solution: "StellarPay provides a multi-signature Soroban contract suite paired with a clean management UI.",
+    features: [
+      "Multi-signature transaction authorization",
+      "Scheduled organizational payroll batches",
+      "Soroban WASM smart contract safety",
+      "Stellar SDK signature aggregation",
+    ],
+    techStack: ["Rust", "Soroban", "Stellar SDK", "React", "TypeScript"],
+    architectureHighlights: ["WASM contract security model", "Client-side signature aggregation logic"],
+    githubUrl: "https://github.com/whiteghost0001/stellarpay",
+    status: "Open Source / Active",
+    isPinned: false,
+    isLiveProduct: false,
+    language: "Rust",
+  },
+
+  // LIVE PRODUCTS (Frontend engineering work)
+  {
+    id: "troit-logistics",
+    name: "TROIT Logistics",
+    category: "Production Web Product",
+    shortDescription: "Production web interface for an enterprise logistics company featuring service tracking UI.",
+    fullDescription: "TROIT Logistics is a modern commercial web application built for an active logistics enterprise, showcasing service offerings, fleet metrics, shipment tracking, and client contact workflows.",
+    problem: "Logistics companies need a clear, high-trust digital interface for clients to inspect services, view tracking options, and request quotes instantly.",
+    solution: "Built a responsive, performance-optimized Next.js web interface with structured service breakdowns and high conversion contact forms.",
+    features: [
+      "Interactive logistics service showcases",
+      "Shipment tracking UI workflow",
+      "Responsive layout for mobile and desktop users",
+      "Fast page load times with optimized asset delivery",
+    ],
+    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    architectureHighlights: ["Modular component design system", "SEO and OpenGraph optimization"],
+    liveUrl: "https://troit-logistics.vercel.app/#services",
+    status: "Live Production",
+    isPinned: true,
+    isLiveProduct: true,
+    role: "Frontend Engineer",
+    language: "TypeScript",
+  },
+  {
+    id: "kimana",
+    name: "Kimana",
+    category: "Production Web Product",
+    shortDescription: "Modern client-facing web application built with aesthetic polish and fluid animations.",
+    fullDescription: "Kimana is a client-facing web platform focused on interactive component design, smooth layout transitions, and high visual standards.",
+    problem: "Modern web products require elevated design polish and responsive performance to maintain user engagement.",
+    solution: "Architected a custom UI component library using React, Tailwind CSS, and Framer Motion for responsive user interactions.",
+    features: [
+      "Custom responsive layout components",
+      "Fluid micro-animations and scroll reveals",
+      "Cross-browser design consistency",
+    ],
+    techStack: ["React", "Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
+    architectureHighlights: ["Framer Motion scroll triggers", "Reusable design system tokens"],
+    liveUrl: "https://kimana-frontend.vercel.app/",
+    status: "Live Production",
+    isPinned: true,
+    isLiveProduct: true,
+    role: "Frontend Engineer",
+    language: "TypeScript",
+  },
+  {
+    id: "nexus-health",
+    name: "Nexus Health Worker",
+    category: "Production Web Product",
+    shortDescription: "Healthcare platform frontend integrating patient management and medical service workflows.",
+    fullDescription: "Nexus Health Worker is a clinical healthcare frontend designed to streamline patient intake, service information, appointment bookings, and health record UI interactions.",
+    problem: "Healthcare web applications often suffer from cluttered UI, poor accessibility, and slow form responsiveness.",
+    solution: "Engineered an accessible, clean healthcare dashboard frontend emphasizing readable typography, secure inputs, and clear patient guidance.",
+    features: [
+      "Patient appointment intake workflows",
+      "Medical service directory & schedule views",
+      "Accessible form controls with validation",
+      "Mobile-first responsive design",
+    ],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "REST API"],
+    architectureHighlights: ["Strict form state validation", "Accessibility (WCAG) compliant inputs"],
+    liveUrl: "https://mynexushealth.online/",
+    status: "Live Production",
+    isPinned: true,
+    isLiveProduct: true,
+    role: "Frontend Engineer",
+    language: "TypeScript",
+  },
+];

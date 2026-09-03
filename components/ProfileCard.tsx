@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, memo } from "react";
+import Image from "next/image";
 
 // ─── CSS (injected once) ──────────────────────────────────────────────────────
 
@@ -17,19 +18,12 @@ const CSS = `
 .pc-card {
   display: grid;
   aspect-ratio: 3 / 4;
-  border-radius: 4px;
+  border-radius: 0.75rem;
   position: relative;
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-}
-
-.pc-card * {
-  display: grid;
-  grid-area: 1/-1;
-  border-radius: 4px;
-  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 
 .pc-inside {
@@ -46,11 +40,8 @@ const CSS = `
 }
 
 .pc-avatar-layer img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   object-position: top center;
-  display: block;
 }
 
 .pc-info-bar {
@@ -60,7 +51,7 @@ const CSS = `
   right: 0;
   z-index: 3;
   padding: 28px 14px 12px;
-  background: linear-gradient(to top, color-mix(in srgb, var(--bg) 80%, transparent), transparent);
+  background: linear-gradient(to top, color-mix(in srgb, var(--bg) 90%, transparent), transparent);
   pointer-events: none;
 }
 
@@ -87,7 +78,7 @@ interface ProfileCardProps {
 
 function ProfileCardInner({
   avatarUrl,
-  name = "Khalid Nasiru",
+  name = "Whiteghost",
 }: ProfileCardProps) {
   useEffect(() => {
     if (document.getElementById("pc-styles")) return;
@@ -103,7 +94,14 @@ function ProfileCardInner({
         <div className="pc-card">
           <div className="pc-inside" />
           <div className="pc-avatar-layer">
-            <img src={avatarUrl} alt={name} loading="eager" />
+            <Image
+              src={avatarUrl}
+              alt={name}
+              fill
+              priority
+              sizes="(max-width: 768px) 180px, 210px"
+              className="object-cover object-top"
+            />
           </div>
           <div className="pc-info-bar">
             <span className="pc-name">{name}</span>

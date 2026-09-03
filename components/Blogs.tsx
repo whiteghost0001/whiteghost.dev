@@ -2,15 +2,14 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import ProjectsExplorer from "./ProjectsExplorer";
+import BlogExplorer from "./BlogExplorer";
 
-export default function Projects() {
+export default function Blogs() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="work" className="px-6 py-24 border-t relative" style={{ borderColor: "var(--border)" }}>
-      <div id="projects" className="absolute -top-24" />
+    <section id="blogs" className="px-6 py-24 border-t relative" style={{ borderColor: "var(--border)" }}>
       <div className="mx-auto max-w-6xl" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -19,19 +18,17 @@ export default function Projects() {
         >
           <div className="mb-8">
             <p className="font-mono text-xs uppercase tracking-[0.2em] mb-2" style={{ color: "var(--accent)" }}>
-              $ ls -la ~/projects
+              $ ls -la ~/blogs
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight font-sans" style={{ color: "var(--fg)" }}>
-              Selected Projects &amp; Repositories
+              Engineering Articles &amp; Writing
               <span style={{ color: "var(--accent)" }}>.</span>
             </h2>
           </div>
 
-          <ProjectsExplorer />
+          <BlogExplorer />
         </motion.div>
       </div>
     </section>
   );
 }
-
-
