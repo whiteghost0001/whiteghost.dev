@@ -245,7 +245,7 @@ export default function PortfolioOS({ isOpen, onCloseOS }: PortfolioOSProps) {
       </div>
 
       {/* OS Taskbar Dock (Bottom) */}
-      <div className="border-t border-[var(--border)] bg-[var(--surface-elevated)] px-3 py-2 flex items-center justify-center gap-2 overflow-x-auto select-none">
+      <div className="border-t border-[var(--border)] bg-[var(--surface-elevated)] px-2.5 py-2 flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto select-none touch-pan-x">
         {Object.values(apps).map((app) => {
           const isActive = app.isOpen && !app.isMinimized;
           return (
@@ -260,7 +260,9 @@ export default function PortfolioOS({ isOpen, onCloseOS }: PortfolioOSProps) {
                   toggleMinimizeApp(app.id);
                 }
               }}
-              className={`flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
+              title={app.title}
+              aria-label={app.title}
+              className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-2 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-semibold transition-all min-h-[36px] sm:min-h-0 ${
                 isActive
                   ? "bg-[var(--accent-glow)] text-[var(--accent)] border border-[var(--accent)] shadow-md font-bold"
                   : app.isOpen
@@ -268,7 +270,8 @@ export default function PortfolioOS({ isOpen, onCloseOS }: PortfolioOSProps) {
                   : "bg-[var(--surface)] text-[var(--fg-muted)] border border-[var(--border)] hover:text-[var(--fg)]"
               }`}
             >
-              {app.icon}
+              <span className="shrink-0">{app.icon}</span>
+              <span className="inline-block sm:hidden text-[10px] max-w-[65px] truncate">{app.title.split(".")[0].split(" ")[0]}</span>
               <span className="hidden sm:inline-block">{app.title}</span>
             </button>
           );

@@ -44,15 +44,15 @@ export default function CodeEditor() {
   return (
     <div className="w-full overflow-hidden rounded-xl border border-[var(--terminal-border)] bg-[var(--terminal-bg)] shadow-xl font-mono text-xs text-[var(--terminal-fg)] transition-colors duration-200">
       {/* Editor Titlebar */}
-      <div className="flex items-center justify-between border-b border-[var(--terminal-border)] bg-[#e2e8f0] dark:bg-[#0f1422] px-4 py-2.5">
+      <div className="flex items-center justify-between border-b border-[var(--terminal-border)] bg-[#e2e8f0] dark:bg-[#0f1422] px-3 sm:px-4 py-2 sm:py-2.5">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5">
-            <span className="h-3 w-3 rounded-full bg-rose-500/80" />
-            <span className="h-3 w-3 rounded-full bg-amber-500/80" />
-            <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-rose-500/80" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-amber-500/80" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-emerald-500/80" />
           </div>
-          <div className="ml-3 flex items-center gap-1.5 rounded-md bg-[#cbd5e1] dark:bg-[#161c2e] px-2.5 py-1 text-[11px] text-cyan-700 dark:text-cyan-300 font-bold">
-            <FileCode size={13} className="text-cyan-600 dark:text-cyan-400" />
+          <div className="ml-2 sm:ml-3 flex items-center gap-1.5 rounded-md bg-[#cbd5e1] dark:bg-[#161c2e] px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] text-cyan-700 dark:text-cyan-300 font-bold">
+            <FileCode size={12} className="text-cyan-600 dark:text-cyan-400 shrink-0" />
             <span>portfolio.tsx</span>
           </div>
         </div>
@@ -61,21 +61,21 @@ export default function CodeEditor() {
           <span className="hidden sm:inline-block text-[10px] text-slate-500 font-mono">TypeScript / React 19</span>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 rounded bg-[#cbd5e1] dark:bg-slate-800/80 px-2 py-1 text-[11px] text-slate-800 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors font-bold"
+            className="flex items-center gap-1 rounded bg-[#cbd5e1] dark:bg-slate-800/80 px-2 py-1 text-[10px] sm:text-[11px] text-slate-800 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors font-bold"
             aria-label="Copy code snippet"
           >
-            {copied ? <Check size={13} className="text-emerald-600 dark:text-emerald-400" /> : <Copy size={13} />}
+            {copied ? <Check size={12} className="text-emerald-600 dark:text-emerald-400" /> : <Copy size={12} />}
             <span>{copied ? "Copied" : "Copy"}</span>
           </button>
         </div>
       </div>
 
       {/* Editor Body */}
-      <div className="overflow-x-auto p-4 sm:p-5 leading-relaxed">
+      <div className="overflow-x-auto p-3 sm:p-5 leading-relaxed text-[11px] sm:text-xs">
         {CODE_LINES.slice(0, visibleLineCount).map((line, idx) => {
           const lineNum = String(idx + 1).padStart(2, "0");
           return (
-            <div key={idx} className="flex items-start gap-4">
+            <div key={idx} className="flex items-start gap-2.5 sm:gap-4">
               <span className="w-6 shrink-0 select-none text-right text-slate-400 dark:text-slate-600 font-mono text-[11px]">
                 {lineNum}
               </span>
